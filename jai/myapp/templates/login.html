@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+     {% block title %}
+     <title>login</title>
+    {% endblock title%}
+
+    <style>
+
+        .main_login{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+           
+        }
+        .login_div{
+            /* margin-left: 400px; */
+            border: 3px solid black;
+            border-radius: 12px;
+            background-color: beige;
+
+            height: 300px;
+            width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        
+        input{
+            border-radius: 5px;
+        }
+
+    </style>
+
+
+
+
+<div class="main_login">  
+    
+    <div class="login_div">
+        
+    <form method="POST">
+        {% csrf_token%}
+        <h4  >login page </h4>
+        <label for="user_name">Username</label>
+        <br>
+        <input type="text" name="user_name" id="user_name">
+        <br>
+        <label for="Password">Password</label>
+        <br>
+        <input type="password" name="password" id="password">
+        <br>
+        <br>
+        <button  class=" btn btn-primary"type="submit">login </button>
+
+
+
+        
+    </form>
+</div>
+
+
+    {% if error %}
+    <p style="color: red;"> {{ error}}</p>
+    {% endif %}
+
+
+</div> 
+{% endblock content %}

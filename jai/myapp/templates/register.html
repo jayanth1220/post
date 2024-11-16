@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+
+
+{% block title %}
+
+
+
+<title>register</title>
+{% endblock title%}
+<style>
+.center_con{
+ /* border: 2px solid black; */
+ border-radius: 10px;
+ height: 550px;
+ width: 750px;
+ display: flex;
+        justify-content: center;
+        align-items: center;
+padding: 20px;
+background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.reg_centring_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+</style>
+<div class="reg_centring_div">
+    <div class="center_con">
+    
+    <form method="post">
+        <h1>registertaion form </h1>
+    <hr>
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button class="btn btn-success" type="submit">register</button>
+
+    </form>
+    {% if error %}
+    <p style="color: red;"> {{ error}}</p>
+    {% endif %}
+    </div>
+
+</div>
+{% endblock content %}

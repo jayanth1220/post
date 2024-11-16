@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+
+
+{% block title %}
+<title>display_post</title>
+{% endblock title%}
+
+
+
+<h1>posts</h1>
+
+
+{% for post in post_list   %}
+
+<div style="width: 100%; height: 100%;">
+<div class="card" style="width: 40rem; margin:10px auto">
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <p class="card-text"> Author:{{post.author}}|Date:{{post.created_at}}|Category:{{post.Category}} </p>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{post.description}}</h6>
+      <p class="card-text">   {{post.body}} </p>
+      {%  if post.author == request.user%}
+      <a href="{% url 'update_post' post.id %}" class="btn btn-primary">Update</a>
+      <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+      {% endif %}
+    </div>
+  </div>
+
+
+{% endfor%}
+
+</div>
+ 
+
+
+
+
+{% endblock content %}

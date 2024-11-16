@@ -1,0 +1,87 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+
+
+{% block title %}
+<title>Create post</title>
+
+
+
+
+{% endblock title%}
+<style>
+    .create_div{
+        /* border: 2px solid black; */
+        height: 650px;
+        width: 465px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+
+
+    .centering_div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    input{
+        border: none;
+        border-radius: 5px;
+        background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    }
+    textarea{
+        border:  none;
+        border-radius: 5px;
+        background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    }
+    select{
+        border:  none;
+        border-radius: 5px;
+        background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    }
+    label {
+    display: block; /* Makes the label take up a full line, so it's above the input */
+    margin-bottom: 8px; /* Adds some space below the label */
+    font-size: 18px; /* Sets a larger font size for readability */
+    color: #333; /* Dark gray color for the label text */
+    font-weight: bold; /* Makes the label text bold */
+    font-family: 'Arial', sans-serif; /* Use a clean sans-serif font */
+}
+
+
+
+
+
+    
+</style>
+
+<div  class="centering_div">
+<div class="create_div">
+    
+    
+    
+    <form method="post">
+        <h1>Create post </h1>
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button class="btn btn-success" type="submit">Post</button>
+
+    </form>
+    {% if error %}
+    <p style="color: red;"> {{ error}}</p>
+    {% endif %}
+    </div>
+</div>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+
+
+{% block title %}
+     <title>home</title>
+    {% endblock title%}
+
+
+<style>
+body{
+    background-color: aliceblue;
+}
+.home_center{
+    height: 450px;
+    width: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        
+border-radius: 10px;
+
+}
+.center_main{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+    
+</style>
+
+<div class="center_main">
+ <div class="home_center">   
+<div class="home_div">
+
+    <h1 >welcome {{request.user.username}} to my website </h1>
+
+    <a class="btn btn-danger" href="{% url 'logout' %}">logout</a>
+    
+</div>
+</div>
+</div>  
+        
+
+
+        
+    {% endblock content %}
+
+    
