@@ -9,7 +9,7 @@ from django.http import HttpResponseBadRequest
 # Create your views here.
 def home(request):
 
-    name='rakhi'
+    name='jayanth'
     nums=[1,2,3,4,5,6,7,8]
     context = {'name':name,'nums':nums}
     return render(request,'home.html',context)
